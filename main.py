@@ -51,3 +51,36 @@ word = category[random.randrange(0, len(category))]
 
 print ("Get ready to play! Your word is {}.".format(
     ' '.join(["_" for char in word])))
+
+score = 0
+unique_letters = set(list(word))
+incorrect_letters = set([])
+correct_letters = set([])
+
+
+def guess_letter():
+    while True:
+        letter = input("Pick a letter: ")
+        if type(letter) == str and len(letter) == 1:
+            if letter not in correct_letters or incorrect_letters:
+                if letter in unique_letters:
+                    correct_letters.add(letter)
+                else:
+                    incorrect_letters.add(letter)
+            break
+        else:
+            print ("Sorry, \"{}\" is not a valid letter. "
+                   "Please try again.\n".format(letter))
+            continue
+
+while len(correct_letters) < len(unique_letters):
+    score = (len(correct_letters) * 100 - (len(incorrect_letters) * 10))
+    print ("Score: {}\n".format(score if score > 0 else 0))
+
+    print ("Letters guessed so far: {}\n".format(
+        ', '.join(incorrect_letters.union(correct_letters))))
+
+    guess_letter()
+
+print ("Congratulations! You guessed {} with a final score of {}".format(
+    word, score))
