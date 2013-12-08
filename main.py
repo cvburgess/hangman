@@ -1,5 +1,7 @@
 # Hangman by Charles Burgess
 
+import random
+
 """
 
 *docs to go here*
@@ -44,4 +46,8 @@ def get_category():
                    "Please try again.\n".format(category))
             continue
 
-print (get_category())
+category = get_category()
+word = category[random.randrange(0, len(category))]
+
+print ("Get ready to play! Your word is {}.".format(
+    ' '.join(["_" for char in word])))
