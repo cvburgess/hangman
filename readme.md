@@ -1,8 +1,6 @@
 # Hangman
 
-## About
-
-Hangman is a super simple Python CLI game designed by [Charles Burgess](https://github.com/cvburgess) for ISM 3031.
+Hangman is a super simple Python CLI game designed by [Charles Burgess](https://github.com/cvburgess) for ISM 3011.
 
 ## Running
 

@@ -4,7 +4,7 @@ import random
 
 """
 
-Hangman is a super simple Python CLI game designed for ISM 3031.
+Hangman is a super simple Python CLI game designed for ISM 3011.
 
 This script was built on a Mac with Python 3 syntax.
 If you run this on a machine with Python 2.x, wrap all responses in quotes.
