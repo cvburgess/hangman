@@ -29,3 +29,19 @@ cities = ["atlanta", "baltimore", "chicago", "denver", "houston",
           "minneapolis", "sacramento", "tampa", "vegas"]
 
 categories = {"animals": animals, "foods": foods, "cities": cities}
+
+
+def get_category():
+    while True:
+        category = input("Please pick a category to begin:\n{}\n\n".format(
+            '\n'.join(['- {}'.format(c.title()) for c in categories.keys()])))
+
+        if category.lower() in categories.keys():
+            return categories[category.lower()]
+            break
+        else:
+            print ("Sorry, \"{}\" is not a valid category. "
+                   "Please try again.\n".format(category))
+            continue
+
+print (get_category())
