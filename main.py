@@ -4,7 +4,12 @@ import random
 
 """
 
-*docs to go here*
+Hangman is a super simple Python CLI game designed for ISM 3031.
+
+This script was built on a Mac with Python 3 syntax.
+If you run this on a machine with Python 2.x, wrap all responses in quotes.
+
+Enjoy!
 
 """
 
@@ -33,6 +38,8 @@ cities = ["atlanta", "baltimore", "chicago", "denver", "houston",
 categories = {"animals": animals, "foods": foods, "cities": cities}
 
 
+# Ask user vor a category, verify it is valid
+
 def get_category():
     while True:
         category = input("Please pick a category to begin:\n{}\n\n".format(
@@ -52,11 +59,15 @@ word = category[random.randrange(0, len(category))]
 print ("Get ready to play! Your word is {}.".format(
     ' '.join(["_" for char in word])))
 
+# Set up scoring
+
 score = 0
 unique_letters = set(list(word))
 incorrect_letters = set([])
 correct_letters = set([])
 
+
+# Ask user for a letter, verify it is valid
 
 def guess_letter():
     while True:
@@ -72,6 +83,8 @@ def guess_letter():
             print ("Sorry, \"{}\" is not a valid letter. "
                    "Please try again.\n".format(letter))
             continue
+
+# Determine if the game is won, lost, or ongoing
 
 while len(correct_letters) < len(unique_letters):
     if len(incorrect_letters) < 10:
