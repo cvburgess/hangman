@@ -6,6 +6,14 @@
 
 """
 
+welcome_message = """\n
+    Hello and welcome to Hangman!\n
+    This code was built by Charles Burgess with Python 3.\n
+    If you are using Python 2.x you need to wrap all responses
+    in quotation marks (\"\") or errors will fly!.\n"""
+
+print(welcome_message)
+
 # Words and Categories
 
 foods = ["apple", "banana", "chocolate", "doughnut", "edamame", "gelato",
