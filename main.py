@@ -74,15 +74,22 @@ def guess_letter():
             continue
 
 while len(correct_letters) < len(unique_letters):
-    if incorrect_letters.union(correct_letters):
-        score = (len(correct_letters) * 100 - (len(incorrect_letters) * 10))
-        print ("Score: {}".format(score if score > 0 else 0))
+    if len(incorrect_letters) < 10:
+        if incorrect_letters.union(correct_letters):
+            score = (len(correct_letters) * 100 -
+                    (len(incorrect_letters) * 10))
+            print ("Score: {}".format(score if score > 0 else 0))
 
-        print ("Letters guessed so far: {}".format(
-            ', '.join(incorrect_letters.union(correct_letters))))
+            print ("Letters guessed so far: {}".format(
+                ', '.join(incorrect_letters.union(correct_letters))))
 
-        print (' '.join([char if char in correct_letters else "_"
-                         for char in word]))
+            print ("Lives left: {}".format(10 - len(incorrect_letters)))
+
+            print (' '.join([char if char in correct_letters else "_"
+                             for char in word]))
+    else:
+        print ("Womp womp womp... You lost with a score of {}. "
+               "The word was \"{}.\"".format(score, word))
 
     guess_letter()
     print("\n")
